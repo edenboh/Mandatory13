@@ -1,0 +1,10 @@
+URL: https://github.com/edenboh/Mandatory13/blob/main/MandatorySQL1.sql
+suggestions for improvement:
+- The last query should filter based on `first_name` not `last_name` as requested in the prompt.
+- Consider using more descriptive names for the primary key columns, such as `item_id` and `customer_id` instead of `idObject` and `idCustomers`.
+Brief justification:
+- correctness: The code correctly creates the database, tables, and inserts the specified data. The select queries are also correct, except for the last one where the condition should be `first_name!='Scott'` instead of `last_name!='Scott'`. Hence, 90% correctness.
+- readability: The code is well-formatted and easy to understand.
+- performance: The queries are simple and efficient for the given data size.
+- security: The code doesn't involve any user input or external data, so it's relatively secure.
+
