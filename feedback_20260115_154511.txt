@@ -1,0 +1,6 @@
+URL: https://github.com/edenboh/Mandatory13/blob/main/MandatorySQL2.sql
+suggestions for improvement:
+- In the first exercise's second query, you should order the results by price in descending order as required by the instructions.
+- The query to get movies not in inventory doesn't exclude movies that are in the inventory. You need to use a `WHERE` clause to find movies where `inventory.film_id` is `NULL`.
+Correctness: 95%
+-----
