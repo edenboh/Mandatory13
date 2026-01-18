@@ -29,15 +29,15 @@ insert into Customer_profile(id, isLoggedIn, customer_id) values
 The first_name of the LoggedIn customers
 All the customers first_name and isLoggedIn columns - even the customers those who don’t have a profile.
 The number of customers that are not LoggedIn*/
-select first_name from Customer
-join Customer_profile on Customer.id=Customer_profile.id
+select first_name ,isLoggedIn from Customer
+join Customer_profile on Customer.id=Customer_profile.customer_id
 where Customer_profile.isLoggedIn=True;
 
 select first_name from Customer
-left join Customer_profile on Customer.id=Customer_profile.id
+left join Customer_profile on Customer.id=Customer_profile.customer_id
 
 select COUNT(*) from Customer
-join Customer_profile on Customer.id=Customer_profile.id
+join Customer_profile on Customer.id=Customer_profile.customer_id
 where Customer_profile.isLoggedIn=False;
 
 /*Create a table named Book, with the columns : book_id SERIAL PRIMARY KEY, title NOT NULL, author NOT NULL*/
@@ -53,7 +53,7 @@ insert into Book(title, author) values
 
 
 /*Create a table named Student, with the columns : student_id SERIAL PRIMARY KEY, name NOT NULL UNIQUE, age. Make sure that the age is never bigger than 15 (Find an SQL method);*/
- create table Student (student_id SERIAL PRIMARY KEY, name varchar(50)NOT NULL UNIQUE, age int CHECK (age >15))
+ create table Student (student_id SERIAL PRIMARY KEY, name varchar(50)NOT NULL UNIQUE, age int CHECK (age <=15))
 /*Insert those students:
 John, 12
 Lera, 11
@@ -62,10 +62,10 @@ Bob, 14
 */
     
 insert into Student(name, age) values
-    ('John', 20),
-    ('Lera', 16),
-    ('Patrick', 18),
-    ('Bob', 19);
+    ('John', 12),
+    ('Lera', 11),
+    ('Patrick', 10),
+    ('Bob', 14);
 /*Create a table named Library, with the columns :
 book_fk_id ON DELETE CASCADE ON UPDATE CASCADE
 student_id ON DELETE CASCADE ON UPDATE CASCADE
